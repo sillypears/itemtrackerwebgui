@@ -66,9 +66,9 @@ $(document).ready(function() {
 	player = gup('player');
 	if (player != "") {	
 		get_items(player);
-		/*setInterval(function(){
+		setInterval(function(){
 		get_items(player);
-	}, 15000);*/
+	}, 15000);
 		
 	} else {
 		$('#content').html('<div>hi</div>');
