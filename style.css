@@ -4,6 +4,12 @@ html,body{
 	
 
 }
+.starting-item{
+	margin-left: 0px;
+}
+.non-start-item{
+	
+}
 .info{
 	font-weight: bold;
 	background-color: lightgrey;
