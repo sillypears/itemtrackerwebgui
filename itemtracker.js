@@ -19,13 +19,19 @@ function get_items(player) {
 
 function print_response(data) {
 	//console.log(data);
+
 	var html = $('<div id=response ></div>');
-	html.append('<table id=stuff></table');
+	html.append('<table border=1 id=stuff></table');
 	$.each(data, function(x, contents) {
-		html.append('<tr><td>Current seed: '+contents.seed+'</td></tr>');	
-		$.each(contents, function(y, object){
+		html.find('#stuff').append('<tr><td colspan='+ contents.item_list.length+ '>Current seed: '+contents.seed+'</td></tr>');	
+		html.find('#stuff').append('<tr id=items><td></td></tr>');
+		$.each(contents.item_list, function(y, object){
+			console.log(object.item_id);
+			html.find('#items').children('td').append('<img src=collectibles/collectibles_'+("000" + object.item_id).slice(-3) + '.png />');
 		});
+		
 	});
+
 	$('#content').html(html);
 }
 
@@ -36,7 +42,7 @@ $(document).ready(function() {
 		get_items(player);
 		setInterval(function(){
 		get_items(player);
-	}, 5000);
+	}, 15000);
 		
 	} else {
 		$('#content').html('<div>hi</div>');
