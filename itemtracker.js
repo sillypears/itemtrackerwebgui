@@ -21,7 +21,7 @@ function print_response(data) {
 	//console.log(data);
 
 	var html = $('<div id=response ></div>');
-	html.append('<table border=1 id=stuff></table');
+	html.append('<table width=100%  id=stuff></table');
 	$.each(data, function(x, contents) {
 		html.find('#stuff').append('<tr><td colspan='+ contents.item_list.length+ '>Current seed: '+contents.seed+'</td></tr>');	
 		html.find('#stuff').append('<tr id=items><td></td></tr>');
