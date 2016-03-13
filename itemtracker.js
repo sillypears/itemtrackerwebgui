@@ -68,7 +68,7 @@ $(document).ready(function() {
 		get_items(player);
 		setInterval(function(){
 		get_items(player);
-	}, 15000);
+	}, 20000);
 		
 	} else {
 		$('#content').html('<div>hi</div>');
