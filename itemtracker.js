@@ -1,4 +1,4 @@
-itemTracker = "http://whateverorigin.org/get?url=http://kanye.space:8080/tracker/api/user/"
+itemTracker = "http://whateverorigin.org/get?url=http://kanye.space:8000/tracker/api/user/"
 
 function get_items(player) {
 	$.ajax({
