@@ -19,7 +19,7 @@ function get_items(player) {
  };
 
 function print_response(data) {
-	console.log(data);
+	console.log(JSON.parse(data));
 	//"Find the length of the amount we are overrunning the div by, divide it equally amongst the items, and move them all closer by that amount."
 	//margin-left = -((numItems * itemPNGWidth) - element.width() / numItems)
 	img_width = 48;
