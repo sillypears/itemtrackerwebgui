@@ -1,4 +1,4 @@
-itemTracker = "http://whateverorigin.org/get?url=http://isaacitemtracker.com:8080/tracker/api/user/"
+itemTracker = "http://anyorigin.com/get?url=http://isaacitemtracker.com:8080/tracker/api/user/"
 
 function get_items(player) {
 	$.ajax({
