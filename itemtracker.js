@@ -1,4 +1,4 @@
-itemTracker = "http://allorigins.us/get?url=http://isaacitemtracker.com:8080/tracker/api/user/"
+itemTracker = encodeURIcomponent("http://allorigins.us/get?url=http://isaacitemtracker.com:8080/tracker/api/user/")
 
 
 function get_items(player) {
