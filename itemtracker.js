@@ -1,4 +1,5 @@
-itemTracker = "http://anyorigin.com/get?url=http://isaacitemtracker.com:8080/tracker/api/user/"
+contents = "http://allorigins.us/get?url=http://isaacitemtracker.com:8080/tracker/api/userlist/"
+itemTracker = contents['contents']
 
 function get_items(player) {
 	$.ajax({
