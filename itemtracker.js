@@ -1,14 +1,19 @@
-itemTracker = encodeURIcomponent("http://allorigins.us/get?url=http://isaacitemtracker.com:8080/tracker/api/user/")
+itemTracker = "http://isaacitemtracker.com:8080/tracker/api/user/" 
 
 
 function get_items(player) {
-	$.ajax({
+/*	$.ajax({
 		type : "GET",
         url : itemTracker + player,
 //        cache : false,
         dataType: 'jsonp',
         }).done(print_response);
- };
+ */
+	url = itemTracker + player;
+	$.getJSON('http://allorigins.us/get?url=' + url, function(data){
+    	print_response(data);
+	});
+};
 
  function gup(name){
  	name=name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
@@ -19,39 +24,44 @@ function get_items(player) {
  };
 
 function print_response(data) {
-	console.log(JSON.parse(data));
+	//console.log(data);
+	//stuff = JSON.parse(data);
+	//console.log(data);
 	//"Find the length of the amount we are overrunning the div by, divide it equally amongst the items, and move them all closer by that amount."
 	//margin-left = -((numItems * itemPNGWidth) - element.width() / numItems)
 	img_width = 48;
 	img_height = 48;
 	var html = $('<div id=response ></div>');
 	html.append('<table id=stuff></table');
-	$.each(data, function(x, contents) {
+	//$.each(data, function(x, stuff) {
+		//console.log(stuff);
+		contents = JSON.parse(data.contents);
+		//console.log(contents);
 		num_items = contents.item_list.length;
 		html.find('#stuff').append('<tr><td colspan='+ num_items + '>Current seed: '+contents.seed+'</td></tr>');	
 		html.find('#stuff').append('<tr id=items_row ><td id=items></td></tr>');
 		$.each(contents.item_list, function(y, object){
-			//console.log(contents);
+			//console.log(object);
 			if (object.starting_item){
-				console.log("starting item "+object.item_id);
+				//console.log("starting item "+object.item_id);
 			}
 			html.find('#items_row').children('td').append('<img width='+img_width+'px height='+img_height + 'px' +((object.starting_item) ? ' class=starting-item' : ' class=non-start-item') + ' src=collectibles/collectibles_'+("000" + object.item_id).slice(-3) + '.png />');
 		});
-		
-	});
+		//console.log(contents);
+	//});
 	
 	$('#content').html(html);
 	
 	
 	var table_dimensions = {"width" : $('html').width(), "height" : $('#stuff').height()}
-	console.log(img_width * num_items +  " " +table_dimensions['width']);
+	//console.log(img_width * num_items +  " " +table_dimensions['width']);
 	var non_starts = $('#items').find('.non-start-item');
 	
 	if (img_width * num_items > table_dimensions['width']) {
 		console.log("items are longer " + img_width * num_items +  " " +table_dimensions['width'] + " " + (img_width * num_items - table_dimensions['width']));
 		$.each(non_starts, function(x, item){
 			offset = Math.ceil(( (img_width * num_items + (img_width * num_items * .1)) - table_dimensions["width"]) / num_items) * -1;
-			console.log(offset);
+			//console.log(offset);
 			$(item).css({"margin-left": offset+"px"});
 		});
 
