@@ -1,5 +1,5 @@
 stuff = JSON.parse("http://allorigins.us/get?url=http://isaacitemtracker.com:8080/tracker/api/userlist/")
-#itemTracker = stuff[0]
+//itemTracker = stuff[0]
 console.log(stuff[0])
 
 function get_items(player) {
