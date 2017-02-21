@@ -7,7 +7,7 @@ function get_items(player) {
         url : itemTracker + player,
 //        cache : false,
         dataType: 'jsonp',
-        }).done(print_response[0]);
+        }).done(print_response);
  };
 
  function gup(name){
