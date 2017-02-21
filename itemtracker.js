@@ -1,6 +1,5 @@
-stuff = JSON.parse("http://allorigins.us/get?url=http://isaacitemtracker.com:8080/tracker/api/userlist/")
-//itemTracker = stuff[0]
-console.log(stuff[0])
+itemTracker = "http://allorigins.us/get?url=http://isaacitemtracker.com:8080/tracker/api/user/"
+
 
 function get_items(player) {
 	$.ajax({
@@ -8,7 +7,7 @@ function get_items(player) {
         url : itemTracker + player,
 //        cache : false,
         dataType: 'jsonp',
-        }).done(print_response);
+        }).done(print_response[0]);
  };
 
  function gup(name){
@@ -20,7 +19,7 @@ function get_items(player) {
  };
 
 function print_response(data) {
-	//console.log(data);s
+	console.log(data[0]);
 	//"Find the length of the amount we are overrunning the div by, divide it equally amongst the items, and move them all closer by that amount."
 	//margin-left = -((numItems * itemPNGWidth) - element.width() / numItems)
 	img_width = 48;
