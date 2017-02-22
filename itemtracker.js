@@ -45,6 +45,9 @@ function print_response(data) {
 			if (object.starting_item){
 				//console.log("starting item "+object.item_id);
 			}
+			if (object.item_id > 441) {
+				object.item_id = 000
+			}
 			html.find('#items_row').children('td').append('<img width='+img_width+'px height='+img_height + 'px' +((object.starting_item) ? ' class=starting-item' : ' class=non-start-item') + ' src=collectibles/collectibles_'+("000" + object.item_id).slice(-3) + '.png />');
 		});
 		//console.log(contents);
